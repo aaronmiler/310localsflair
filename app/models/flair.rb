@@ -1,0 +1,2 @@
+class Flair < ApplicationRecord
+end

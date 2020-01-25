@@ -1,0 +1,41 @@
+- colors = colors_for(@flair.team)
+.hero.is-fullheight.section.is-vcentered style='background-color:#{colors[:primary]}'
+  .container.is-vcentered.is-flex
+    .columns.is-centered.is-vcentered
+      .column.is-narrow
+        .section.has-background-white
+          .container
+            h1.title
+              = link_to '310local', 'https://old.reddit.com/u/310local', target: '_blank'
+              |  is currently supporting
+              span.team style="background-color:#{colors[:primary]}; border-color: #{colors[:secondary]}"= @flair.team
+
+            hr
+            h2.subtitle But has previously supported...
+
+            table.table.is-fullwidth
+              thead
+                th Team
+                th "Supported" On
+                th "Supported" For
+                th style="width: 100%' "Reason"
+                th Source
+              tbody
+                - flairs = Flair.all
+                - flairs.each_with_index do |f, i|
+                  tr
+                    td= f.team
+                    td= f.found.strftime("%b #{f.found.day.ordinalize} %Y")
+                    td= flairs[i + 1].present? ? (f.found - flairs[i].try(:found)).to_i : ''
+                    td= f.reason
+                    td= f.source
+
+
+            footer.has-text-centered
+              p
+                strong NOTE:
+                em &nbsp; Project started on January 25th, history begins here
+              p
+                | Made for updoots and the enjoyment of
+                =< link_to '/r/mls', 'https://old.reddit.com/r/mls', target: '_blank'
+
