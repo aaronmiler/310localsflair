@@ -18,7 +18,7 @@
                 th Team
                 th "Supported" On
                 th "Supported" For
-                th style="width: 100%' "Reason"
+                th style="width: 100%" "Reason"
                 th Source
               tbody
                 - flairs = Flair.all
@@ -28,7 +28,7 @@
                     td= f.found.strftime("%b #{f.found.day.ordinalize} %Y")
                     td= flairs[i + 1].present? ? (f.found - flairs[i].try(:found)).to_i : ''
                     td= f.reason
-                    td= f.source
+                    td= link_to 'permalink', f.source
 
 
             footer.has-text-centered
