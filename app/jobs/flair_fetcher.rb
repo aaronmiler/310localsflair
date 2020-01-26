@@ -19,9 +19,7 @@ class FlairFetcher < ApplicationJob
         Flair.create!(team: flair, found: Date.today)
       end
     rescue
-      warn "Bot Warning"
-      warn page.body.inspect
-      self.set(wait: 10.minutes).perform_later if Rails.env.production?
+      warn 'Borked'
     end
   end
 end

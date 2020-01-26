@@ -3,9 +3,10 @@
   .container.is-vcentered.is-flex
     .columns.is-centered.is-vcentered
       .column.is-narrow
+      .column
         .section.has-background-white
           .container
-            h1.title
+            h1.title.has-text-centered
               = link_to '310local', 'https://old.reddit.com/u/310local', target: '_blank'
               |  is currently supporting
               span.team style="background-color:#{colors[:primary]}; border-color: #{colors[:secondary]}"= @flair.team
@@ -19,23 +20,25 @@
                 th "Supported" On
                 th "Supported" For
                 th style="width: 100%" "Reason"
-                th Source
               tbody
                 - flairs = Flair.all
                 - flairs.each_with_index do |f, i|
                   tr
-                    td= f.team
+                    td style='white-space: nowrap'= f.team
                     td= f.found.strftime("%b #{f.found.day.ordinalize} %Y")
                     td= flairs[i + 1].present? ? (f.found - flairs[i].try(:found)).to_i : ''
-                    td= f.reason
-                    td= link_to 'permalink', f.source
+                    td
+                      blockquote= "\"#{f.reason}\""
+                      - if f.source
+                        = link_to 'Source', f.source
 
 
             footer.has-text-centered
               p
                 strong NOTE:
-                em &nbsp; Project started on January 25th, history begins here
+                em &nbsp; Project started on January 25th, history begins there
               p
                 | Made for updoots and the enjoyment of
                 =< link_to '/r/mls', 'https://old.reddit.com/r/mls', target: '_blank'
 
+      .column.is-narrow
