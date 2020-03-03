@@ -27,7 +27,7 @@
                     td style='white-space: nowrap'= f.team
                     td= f.found.strftime("%b #{f.found.day.ordinalize} %Y")
                     - if i != 0
-                      td= TimeDifference.between(flairs[i - 1].try(:found), f.found).humanize
+                      td= TimeDifference.between(flairs[i - 1].try(:created_at), f.created_at).humanize
                     - else
                       td ∞
                     td
