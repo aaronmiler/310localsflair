@@ -1,24 +1,20 @@
-# README
+# 310local's Flair
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a single page Rails app built to catalog flair changes for a reddit user. It uses pretty specific selectors for 
+the MLS reddit, but could easily be switched to check any users flair over time.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Clone the repo, and run the following commands
+```
+bundle install
+rake db:setup
+```
 
-* System dependencies
+Once those are ran the app should run with `rails server`.
 
-* Configuration
+## Fetching the flair
 
-* Database creation
+Running `rake flair:fetch` on the command line will see if the users flair needs to be updated.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Presently the "reason" needs to be manually populated, as I didn't feel a bot could easily determine which comment was a good reason for the switch.
