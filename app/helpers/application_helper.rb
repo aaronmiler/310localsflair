@@ -10,7 +10,7 @@ module ApplicationHelper
       { primary: '#ee1a39', secondary: '#231f20', team: 'D.C. United' },
       { primary: '#BF0D3E', secondary: '#00205B', team: 'FC Dallas' },
       { primary: '#F68712', secondary: '#8DC6ED', team: 'Houston Dynamo' },
-      { primary: '#231F20', secondary: '#F7B5CD', team: 'Inter Miami CF' },
+      { primary: '#231F20', secondary: '#F7B5CD', team: 'Inter Miami CF' },
       { primary: '#00245d', secondary: '#ffd200', team: 'LA Galaxy' },
       { primary: '#000000', secondary: '#C39e6d', team: 'Los Angeles FC' },
       { primary: '#585958', secondary: '#9bcde4', team: 'Minnesota United FC' },
