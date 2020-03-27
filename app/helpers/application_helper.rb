@@ -31,6 +31,8 @@ module ApplicationHelper
   end
 
   def colors_for(team)
-    team_colors.find { |x| x[:team] == team }
+    found = team_colors.find { |x| x[:team] == team }
+    return found if found.present?
+    { team: team, primary: '#333', secondary: '#FFF' }
   end
 end

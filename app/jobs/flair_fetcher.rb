@@ -16,7 +16,7 @@ class FlairFetcher < ApplicationJob
 
       document = Nokogiri.parse(page.body)
       element = document.search('.author').find { |x| x.text.downcase == '310local' }
-      flair = element.parent.search('.flair').text
+      flair = element.parent.search('.flair').text.split(':')[0].squish
 
       warn "Found: #{flair}"
 
